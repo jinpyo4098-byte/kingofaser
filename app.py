@@ -3,7 +3,7 @@ import google.generativeai as genai
 from PIL import Image
 
 # 1. API 키 설정 (AIzaSyDjlf8hJnNY-U1eOKXQracWYOvWOeB2Ifc)
-GOOGLE_API_KEY = "AIzaSyDjlf8hJnNY-U1eOKXQracWYOvWOeB2Ifc"
+GOOGLE_API_KEY = "AIzaSyBvtF9GFlVm6u--JTP5BmGreCwj6lHwstg"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # 2. 페이지 설정
