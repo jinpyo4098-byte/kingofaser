@@ -29,7 +29,8 @@ if uploaded_file is not None:
         try:
             with st.spinner("AI가 문제를 분석 중입니다..."):
                 # 모델 설정
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-1.5-flash-latest')
+
                 
                 prompt = "이 이미지 속 문제를 읽고, 숫자나 상황을 바꾼 변형 문제를 정답/해설과 함께 한국어로 만들어줘."
                 
