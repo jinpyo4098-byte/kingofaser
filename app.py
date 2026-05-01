@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
-# 1. API 키 설정 (본인의 키로 교체)
+# 1. API 키 설정 (본인의 키로 교체하세요)
 GOOGLE_API_KEY = "여기에_발급받은_API_키를_넣으세요"
 genai.configure(api_key=GOOGLE_API_KEY)
 
@@ -23,28 +23,32 @@ uploaded_file = st.file_uploader("문제 사진을 선택하세요", type=["jpg"
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="업로드된 문제 사진", use_container_width=True)
-    
+
+    # 버튼 클릭 시 AI 호출
     if st.button("✨ 변형 문제 생성하기"):
         try:
             with st.spinner("AI가 문제를 분석 중입니다..."):
-                # 모델 이름을 최신 버전인 'gemini-1.5-flash'로 설정
+                # 모델 설정
                 model = genai.GenerativeModel('gemini-1.5-flash-latest')
                 
                 prompt = "이 이미지 속 문제를 읽고, 숫자나 상황을 바꾼 변형 문제를 정답/해설과 함께 한국어로 만들어줘."
                 
                 # AI 호출
                 response = model.generate_content([prompt, image])
+                
+                # 결과 저장 및 화면 갱신
                 st.session_state.result = response.text
-
+                st.rerun() # 결과를 즉시 보여주기 위해 새로고침
         except Exception as e:
-            st.error(f"에러가 발생했습니다: {e}")
+            st.error(f"오류가 발생했습니다: {e}")
 
-# 결과 출력
+# 4. 결과 출력 (버튼 밖에 위치해야 결과가 사라지지 않습니다)
 if st.session_state.result:
+    st.success("변형 문제 생성이 완료되었습니다!")
     st.markdown("---")
-    st.subheader("💡 생성된 변형 문제")
-    st.success(st.session_state.result)
+    st.markdown(st.session_state.result)
     
+    # 다시하기 버튼
     if st.button("🔄 다시하기"):
         st.session_state.result = None
         st.rerun()
