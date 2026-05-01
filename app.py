@@ -9,7 +9,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 # 2. 페이지 설정
 st.set_page_config(page_title="📝 변형문제제조기", page_icon="🧠", layout="centered")
 
-st.title("🧠 변형문제제조기")
+st.title("🧠 변형문제 제조기")
 st.markdown("문제 사진을 업로드하면 AI가 분석하여 **유사한 변형 문제**를 만들어 드립니다! 🍀")
 st.markdown("---")
 
@@ -28,7 +28,7 @@ if uploaded_file is not None:
         try:
             with st.spinner("AI가 문제를 분석 중입니다..."):
                 # 모델 이름을 최신 버전인 'gemini-1.5-flash'로 설정
-                model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+                model = genai.GenerativeModel('gemini-1.5-flash-latest')
                 
                 prompt = "이 이미지 속 문제를 읽고, 숫자나 상황을 바꾼 변형 문제를 정답/해설과 함께 한국어로 만들어줘."
                 
