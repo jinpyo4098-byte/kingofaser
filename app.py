@@ -35,7 +35,7 @@ if uploaded_file is not None:
         try:
             with st.spinner("AI가 문제를 읽고 열심히 새 문제를 만드는 중..."):
                 # Gemini 1.5 Flash 모델 사용 (이미지 인식 + 텍스트 생성)
-                model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                model = genai.GenerativeModel('gemini-pro-vision')
                 
                 # 프롬프트 구성
                 prompt = """
