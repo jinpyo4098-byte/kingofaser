@@ -2,8 +2,8 @@ import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
-# 1. API 키 설정 (본인의 키로 교체하세요)
-GOOGLE_API_KEY = "여기에_발급받은_API_키를_넣으세요"
+# 1. API 키 설정 (AIzaSyDjlf8hJnNY-U1eOKXQracWYOvWOeB2Ifc)
+GOOGLE_API_KEY = "AIzaSyDjlf8hJnNY-U1eOKXQracWYOvWOeB2Ifc"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # 2. 페이지 설정
