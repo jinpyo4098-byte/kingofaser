@@ -2,9 +2,12 @@ import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
-# 1. API 키 설정 (AIzaSyDjlf8hJnNY-U1eOKXQracWYOvWOeB2Ifc)
-GOOGLE_API_KEY = "AIzaSyBvtF9GFlVm6u--JTP5BmGreCwj6lHwstg"
+
+# 수정된 코드: Streamlit secrets에서 키를 불러옵니다.
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
+
+# ... (나머지 코드는 동일) ...
 
 # 2. 페이지 설정
 st.set_page_config(page_title="📝 변형문제제조기", page_icon="🧠", layout="centered")
